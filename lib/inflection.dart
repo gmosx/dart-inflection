@@ -27,7 +27,7 @@ String convertToSnakeCase(String phrase) {
 }
 
 /// Converts the input [phrase] to 'spinal case', i.e. a hyphen-delimited,
-/// lowercase form.
+/// lowercase form. Also known as 'kebab case' or 'lisp case'.
 String convertToSpinalCase(String phrase) {
 // TODO: word.gsub!(/(?:([A-Za-z\d])|^)(#{inflections.acronym_regex})(?=\b|[^a-z])/) { "#{$1}#{$1 && '_'}#{$2.downcase}" }
 
