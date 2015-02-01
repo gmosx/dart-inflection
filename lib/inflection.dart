@@ -14,7 +14,8 @@ String convertToPlural(String word) {
 final UNDERSCODE_RE0 = new RegExp(r'''([A-Z\d]+)([A-Z][a-z])''');
 final UNDERSCODE_RE1 = new RegExp(r'''([a-z\d])([A-Z])''');
 
-/// Makes an underscored, lowercase form from the input [phrase].
+/// Converts the input [phrase] to 'snake case', i.e. an underscored, lowercase
+/// form.
 String convertToSnakeCase(String phrase) {
   // TODO: word.gsub!(/(?:([A-Za-z\d])|^)(#{inflections.acronym_regex})(?=\b|[^a-z])/) { "#{$1}#{$1 && '_'}#{$2.downcase}" }
 
@@ -23,4 +24,16 @@ String convertToSnakeCase(String phrase) {
       .replaceAllMapped(UNDERSCODE_RE1, (match) => "${match[1]}_${match[2]}")
       .replaceAll("-", "_")
       .toLowerCase();
+}
+
+/// Converts the input [phrase] to 'spinal case', i.e. a hyphen-delimited,
+/// lowercase form.
+String convertToSpinalCase(String phrase) {
+// TODO: word.gsub!(/(?:([A-Za-z\d])|^)(#{inflections.acronym_regex})(?=\b|[^a-z])/) { "#{$1}#{$1 && '_'}#{$2.downcase}" }
+
+return phrase
+    .replaceAllMapped(UNDERSCODE_RE0, (match) => "${match[1]}-${match[2]}")
+    .replaceAllMapped(UNDERSCODE_RE1, (match) => "${match[1]}-${match[2]}")
+    .replaceAll("_", "-")
+    .toLowerCase();
 }
