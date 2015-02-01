@@ -1,0 +1,6 @@
+name: inflection
+version: 0.1.0
+author: George Moschovitis <george.moschovitis@gmail.com>
+description: A port of Rails' ActiveSupport inflection library to Dart.
+dependencies:
+  unittest: any
