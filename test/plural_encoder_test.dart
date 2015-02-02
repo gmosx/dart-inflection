@@ -1,6 +1,6 @@
 import 'package:unittest/unittest.dart';
 
-import 'package:inflection/src/plural_encoder.dart';
+import 'package:inflection/inflection.dart';
 
 void main() {
   group("Cardinality plural inflections:", () {

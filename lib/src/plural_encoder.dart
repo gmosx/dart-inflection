@@ -1,4 +1,4 @@
-import 'dart:convert';
+part of inflection;
 
 class PluralEncoder extends Converter<String, String> {
   List<List> _pluralInflectionRules = [];
