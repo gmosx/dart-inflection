@@ -1,7 +1,9 @@
-part of inflection;
+library inflection.spinal_case;
 
-final UNDERSCODE_RE0 = new RegExp(r'''([A-Z\d]+)([A-Z][a-z])''');
-final UNDERSCODE_RE1 = new RegExp(r'''([a-z\d])([A-Z])''');
+import 'dart:convert';
+
+final _UNDERSCODE_RE0 = new RegExp(r'''([A-Z\d]+)([A-Z][a-z])''');
+final _UNDERSCODE_RE1 = new RegExp(r'''([a-z\d])([A-Z])''');
 
 class SpinalCaseEncoder extends Converter {
   const SpinalCaseEncoder();
@@ -11,8 +13,8 @@ class SpinalCaseEncoder extends Converter {
   @override
   String convert(String phrase) {
     return phrase
-        .replaceAllMapped(UNDERSCODE_RE0, (match) => "${match[1]}-${match[2]}")
-        .replaceAllMapped(UNDERSCODE_RE1, (match) => "${match[1]}-${match[2]}")
+        .replaceAllMapped(_UNDERSCODE_RE0, (match) => "${match[1]}-${match[2]}")
+        .replaceAllMapped(_UNDERSCODE_RE1, (match) => "${match[1]}-${match[2]}")
         .replaceAll("_", "-")
         .toLowerCase();
   }

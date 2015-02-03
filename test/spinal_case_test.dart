@@ -1,6 +1,8 @@
+library inflection.spinal_case.test;
+
 import 'package:unittest/unittest.dart';
 
-import 'package:inflection/inflection.dart';
+import 'package:inflection/src/spinal_case.dart';
 
 void main() {
   group("The SpinalCaseEncoder", () {

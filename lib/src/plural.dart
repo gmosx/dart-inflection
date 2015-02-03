@@ -1,4 +1,8 @@
-part of inflection;
+library inflection.plural;
+
+import 'dart:convert';
+
+import 'uncountable_nouns.dart';
 
 class PluralEncoder extends Converter<String, String> {
   List<List> _pluralInflectionRules = [];
@@ -22,25 +26,29 @@ class PluralEncoder extends Converter<String, String> {
       [r'(matr|vert|ind)(?:ix|ex)$', (m) => '${m[1]}ices'],
       [r'^(m|l)ouse$', (m) => '${m[1]}ice'],
       [r'^(m|l)ice$', (m) => m[0]],
-      [r'^(ox)$', (m) => 'oxen'],
-      [r'^(oxen)$', (m) => 'oxen'],
+      [r'^(ox)$', (m) => '${m[1]}en'],
+      [r'^(oxen)$', (m) => m[1]],
       [r'(quiz)$', (m) => '${m[1]}zes']
     ].reversed);
   }
 
   void addPluralInflectionRules(Iterable<List> rules) {
     rules.forEach((r) {
-      _pluralInflectionRules.add([new RegExp(r.first), r.last]);
+      _pluralInflectionRules.add([new RegExp(r.first, caseSensitive: false), r.last]);
     });
   }
 
   @override
   String convert(String word) {
     if (!word.isEmpty) {
-      for (var r in _pluralInflectionRules) {
-        RegExp pattern = r.first;
-        if (pattern.hasMatch(word)) {
-          return word.replaceAllMapped(pattern, r.last);
+      if (uncountableNouns.contains(word.toLowerCase())) {
+        return word;
+      } else {
+        for (var r in _pluralInflectionRules) {
+          RegExp pattern = r.first;
+          if (pattern.hasMatch(word)) {
+            return word.replaceAllMapped(pattern, r.last);
+          }
         }
       }
     }

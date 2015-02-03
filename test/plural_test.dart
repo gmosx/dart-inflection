@@ -1,10 +1,13 @@
+library inflection.plural.test;
+
 import 'package:unittest/unittest.dart';
 
-import 'package:inflection/inflection.dart';
+import 'package:inflection/src/plural.dart';
+import 'package:inflection/src/uncountable_nouns.dart';
 
 void main() {
-  group("Cardinality plural inflections:", () {
-    test("convert", () {
+  group("The PluralEncoder", () {
+    test("converts nouns from singular to plural", () {
       expect(PLURAL.convert(""), equals(""));
 
       expect(PLURAL.convert("House"), equals("Houses"));
@@ -38,7 +41,7 @@ void main() {
 
       expect(PLURAL.convert("fly"), equals("flies"));
 
-      expect(PLURAL.convert("fish"), equals("fishes"));
+      expect(PLURAL.convert("dish"), equals("dishes"));
       expect(PLURAL.convert("bench"), equals("benches"));
 
       expect(PLURAL.convert("matrix"), equals("matrices"));
@@ -56,6 +59,17 @@ void main() {
       expect(PLURAL.convert("oxen"), equals("oxen"));
 
       expect(PLURAL.convert("quiz"), equals("quizzes"));
+    });
+
+    test("handles uncountable nouns", () {
+      uncountableNouns.forEach((noun) {
+        expect(PLURAL.convert(noun), equals(noun));
+      });
+
+      uncountableNouns.forEach((noun) {
+        final upperNoun = noun.toUpperCase();
+        expect(PLURAL.convert(upperNoun), equals(upperNoun));
+      });
     });
   });
 }
