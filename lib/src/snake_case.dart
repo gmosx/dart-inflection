@@ -5,7 +5,7 @@ import 'dart:convert';
 final _UNDERSCODE_RE0 = new RegExp(r'''([A-Z\d]+)([A-Z][a-z])''');
 final _UNDERSCODE_RE1 = new RegExp(r'''([a-z\d])([A-Z])''');
 
-class SnakeCaseEncoder extends Converter {
+class SnakeCaseEncoder extends Converter<String, String> {
   const SnakeCaseEncoder();
 
   /// Converts the input [phrase] to 'spinal case', i.e. a hyphen-delimited,
@@ -20,4 +20,4 @@ class SnakeCaseEncoder extends Converter {
   }
 }
 
-const SNAKE_CASE = const SnakeCaseEncoder();
+const Converter<String, String> SNAKE_CASE = const SnakeCaseEncoder();
