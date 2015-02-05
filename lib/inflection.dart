@@ -2,7 +2,7 @@
 /// different grammatical categories such as tense, mood, voice, aspect, person,
 /// number, gender and case.
 ///
-/// [AvtiveSupport Inflector](https://github.com/rails/rails/tree/master/activesupport/lib/active_support/inflector)
+/// [ActiveSupport Inflector](https://github.com/rails/rails/tree/master/activesupport/lib/active_support/inflector)
 /// [Letter case](http://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
 library inflection;
 

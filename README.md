@@ -1,5 +1,7 @@
 # Inflection
 
+[![Build Status](https://travis-ci.org/gmosx/dart-inflection.svg?branch=master)](https://travis-ci.org/gmosx/dart-inflection)
+
 In grammar, inflection or inflexion is the modification of a word to express 
 different grammatical categories such as tense, mood, voice, aspect, person, 
 number, gender and case.
