@@ -1,5 +1,9 @@
 name: inflection
+<<<<<<< HEAD
 version: 0.3.1
+=======
+version: 0.3.0
+>>>>>>> 50f30a374f8d72672ef2269e3f9e5037e96d6094
 author: George Moschovitis <george.moschovitis@gmail.com>
 description: Grammatical Inflection encoders.
 homepage: https://github.com/gmosx/dart-inflection
