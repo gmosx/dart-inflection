@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2
+
+- Cleanup.
+
 ## 0.3.1
 
 - Case conversion handles sentences delimited with whitespace.
