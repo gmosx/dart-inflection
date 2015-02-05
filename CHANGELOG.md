@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.1
+
+- Case conversion handles sentences delimited with whitespace.
+
+## 0.3.0
+
+- Handle irregular plural nouns.
+- Added shortcut functions.
+
 ## 0.2.0
 
 - Handle uncountable nouns.

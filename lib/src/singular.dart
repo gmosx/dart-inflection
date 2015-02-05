@@ -1,14 +1,19 @@
-library inflection.plural;
+library inflection.singular;
 
 import 'dart:convert';
 
 import 'uncountable_nouns.dart';
+import 'irregular_plural_nouns.dart';
 
 class SingularEncoder extends Converter<String, String> {
-  List<List> _singularInflectionRules = [];
+  final List<List> _inflectionRules = [];
 
   SingularEncoder() {
-    addSingularInflectionRules([
+    irregularPluralNouns.forEach((singular, plural) {
+      addIrregularInflectionRule(singular, plural);
+    });
+
+    [
       [r's$', (m) => ''],
       [r'(ss)$', (m) => m[1]],
       [r'(n)ews$', (m) => '${m[1]}ews'], // TODO: uncountable?
@@ -34,13 +39,28 @@ class SingularEncoder extends Converter<String, String> {
       [r'(matr)ices$', (m) => '${m[1]}ix'],
       [r'(quiz)zes$', (m) => m[1]],
       [r'(database)s$', (m) => m[1]]
-    ].reversed);
+    ].reversed.forEach((rule) => addInflectionRule(rule.first, rule.last));
   }
 
-  void addSingularInflectionRules(Iterable<List> rules) {
-    rules.forEach((r) {
-      _singularInflectionRules.add([new RegExp(r.first, caseSensitive: false), r.last]);
-    });
+  void addInflectionRule(String plural, dynamic singular) {
+    _inflectionRules.add([new RegExp(plural, caseSensitive: false), singular]);
+  }
+
+  void addIrregularInflectionRule(String singular, String plural) {
+    final s0 = singular.substring(0, 1);
+    final srest = singular.substring(1);
+    final p0 = plural.substring(0, 1);
+    final prest = plural.substring(1);
+
+    if (s0.toUpperCase() == p0.toUpperCase()) {
+      addInflectionRule('(${s0})${srest}\$', (m) => '${m[1]}${srest}');
+      addInflectionRule('(${p0})${prest}\$', (m) => '${m[1]}${srest}');
+    } else {
+      addInflectionRule('${s0.toUpperCase()}(?i)${srest}\$', (m) => '${s0.toUpperCase()}${srest}');
+      addInflectionRule('${s0.toLowerCase()}(?i)${srest}\$', (m) => '${s0.toUpperCase()}${srest}');
+      addInflectionRule('${p0.toUpperCase()}(?i)${prest}\$', (m) => '${s0.toUpperCase()}${srest}');
+      addInflectionRule('${p0.toLowerCase()}(?i)${prest}\$', (m) => '${s0.toLowerCase()}${srest}');
+    }
   }
 
   @override
@@ -49,7 +69,7 @@ class SingularEncoder extends Converter<String, String> {
       if (uncountableNouns.contains(word.toLowerCase())) {
         return word;
       } else {
-        for (var r in _singularInflectionRules) {
+        for (var r in _inflectionRules) {
           RegExp pattern = r.first;
           if (pattern.hasMatch(word)) {
             return word.replaceAllMapped(pattern, r.last);
@@ -62,4 +82,4 @@ class SingularEncoder extends Converter<String, String> {
   }
 }
 
-final SINGULAR = new SingularEncoder();
+final Converter<String, String> SINGULAR = new SingularEncoder();

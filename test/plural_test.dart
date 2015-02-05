@@ -71,5 +71,12 @@ void main() {
         expect(PLURAL.convert(upperNoun), equals(upperNoun));
       });
     });
+
+    test("handles irregular plural nouns", () {
+      expect(PLURAL.convert("person"), equals("people"));
+      expect(PLURAL.convert("Child"), equals("Children"));
+      expect(PLURAL.convert("children"), equals("children"));
+      expect(PLURAL.convert("man"), equals("men"));
+    });
   });
 }
