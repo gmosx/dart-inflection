@@ -19,7 +19,9 @@ main() {
   // Using 'shortcut' functions.
   
   print(pluralize("house")); // => "houses"
+  print(pluralizeVerb("goes")); // => "go"
   print(singularize("axes")); // => "axis"
+  print(singularizeVerb("write")); // => "writes"
   print(convertToSnakeCase("CamelCaseName")); // => "camel_case_name"
   print(convertToSpinalCase("CamelCaseName")); // => "camel-case-name"
 
