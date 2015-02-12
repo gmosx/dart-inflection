@@ -1,4 +1,4 @@
-library inflection.irregular;
+library inflection.irregular_plural_nouns;
 
 /// A collection of nouns with irregular plurals.
 ///

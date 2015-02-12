@@ -1,4 +1,4 @@
-library inflection.irregular;
+library inflection.irregular_plural_verbs;
 
 /// A collection of verbs with irregular plurals.
 final Map<String, String> irregularPluralVerbs = const {

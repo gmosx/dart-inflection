@@ -5,3 +5,5 @@ docs/
 pubspec.lock
 packages
 .*.un~
+.project
+.settings

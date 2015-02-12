@@ -1,4 +1,4 @@
-library inflection.plural.verb;
+library inflection.plural_verb;
 
 import 'dart:convert';
 

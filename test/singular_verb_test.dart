@@ -1,11 +1,11 @@
-library inflection.singular.verb.test;
+library inflection.singular_verb.test;
 
 import 'package:unittest/unittest.dart';
 
 import 'package:inflection/src/singular_verb.dart';
 
 void main() {
-  group("The SINGULARVERBEncoder", () {
+  group("The SingularVerbEncoder", () {
     test("converts verbs from singular to plural", () {
       expect(SINGULARVERB.convert(""), equals(""));
       expect(SINGULARVERB.convert("eat"), equals("eats"));

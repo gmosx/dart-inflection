@@ -1,4 +1,4 @@
-library inflection.singular.verb;
+library inflection.singular_verb;
 
 import 'dart:convert';
 
