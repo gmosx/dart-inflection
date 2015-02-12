@@ -19,8 +19,10 @@ main() {
   // Using 'shortcut' functions.
   
   print(pluralize("house")); // => "houses"
+  print(convertToPlural("house")); // => "houses", alias for pluralize
   print(pluralizeVerb("goes")); // => "go"
   print(singularize("axes")); // => "axis"
+  print(convertToSingular("axes")); // => "axis", alias for pluralize
   print(singularizeVerb("write")); // => "writes"
   print(convertToSnakeCase("CamelCaseName")); // => "camel_case_name"
   print(convertToSpinalCase("CamelCaseName")); // => "camel-case-name"
