@@ -7,18 +7,26 @@
 library inflection;
 
 import 'src/plural.dart';
+import 'src/plural_verb.dart';
 import 'src/singular.dart';
+import 'src/singular_verb.dart';
 import 'src/snake_case.dart';
 import 'src/spinal_case.dart';
 
 export 'src/plural.dart';
+export 'src/plural_verb.dart';
 export 'src/singular.dart';
+export 'src/singular_verb.dart';
 export 'src/snake_case.dart';
 export 'src/spinal_case.dart';
 
 String pluralize(String word) => PLURAL.convert(word);
 
+String pluralizeVerb(String word) => PLURALVERB.convert(word);
+
 String singularize(String word) => SINGULAR.convert(word);
+
+String singularizeVerb(String word) => SINGULARVERB.convert(word);
 
 String convertToSnakeCase(String word) => SNAKE_CASE.convert(word);
 
