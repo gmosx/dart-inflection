@@ -20,12 +20,16 @@ export 'src/singular_verb.dart';
 export 'src/snake_case.dart';
 export 'src/spinal_case.dart';
 
+String convertToPlural(String word) => PLURAL.convert(word);
 String pluralize(String word) => PLURAL.convert(word);
 
+String convertToPluralVerb(String word) => PLURALVERB.convert(word);
 String pluralizeVerb(String word) => PLURALVERB.convert(word);
 
+String convertToSingular(String word) => SINGULAR.convert(word);
 String singularize(String word) => SINGULAR.convert(word);
 
+String convertToSingularVerb(String word) => SINGULARVERB.convert(word);
 String singularizeVerb(String word) => SINGULARVERB.convert(word);
 
 String convertToSnakeCase(String word) => SNAKE_CASE.convert(word);
