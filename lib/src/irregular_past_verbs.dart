@@ -1,6 +1,6 @@
 library inflection.irregular_past_verbs;
 
-/// A collection of verbs with irregular plurals.
+/// A collection of verbs with irregular past.
 final Map<String, String> irregularPastVerbs = const {
 
   "backslidden": "backslid",

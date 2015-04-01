@@ -24,6 +24,10 @@ void main() {
       expect(PAST.convert("finish"), equals("finished"));
       expect(PAST.convert("fix"), equals("fixed"));
       expect(PAST.convert("buzz"), equals("buzzed"));
+      expect(PAST.convert("asked"), equals("asked"));
+      expect(PAST.convert("closed"), equals("closed"));
+      expect(PAST.convert("reopened"), equals("reopened"));
+      expect(PAST.convert("unseed"), equals("unseeded"));
     });
 
     test("handles irregular past verbs", () {
@@ -33,6 +37,7 @@ void main() {
       expect(PAST.convert("forgo"), equals("forwent"));
       expect(PAST.convert("undo"), equals("undid"));
       expect(PAST.convert("outsell"), equals("outsold"));
+      expect(PAST.convert("rebreed"), equals("rebred"));
     });
 
   });
