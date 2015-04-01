@@ -22,6 +22,7 @@ main() {
   print(singularize("axes")); // => "axis"
   print(convertToSnakeCase("CamelCaseName")); // => "camel_case_name"
   print(convertToSpinalCase("CamelCaseName")); // => "camel-case-name"
+  print(past("forgo")); // => "forwent"
 
   // Using default encoders.
   
@@ -30,6 +31,7 @@ main() {
   print(SINGULAR.convert("species")); // => "species"
   print(SNAKE_CASE.convert("CamelCaseName")); // => "camel_case_name"
   print(SPINAL_CASE.convert("CamelCaseName")); // => "camel-case-name"
+  print(PAST.convert("miss")); // => "missed"
 }
 ```
 

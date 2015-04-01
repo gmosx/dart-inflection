@@ -39,3 +39,4 @@ String convertToSnakeCase(String word) => SNAKE_CASE.convert(word);
 String convertToSpinalCase(String word) => SPINAL_CASE.convert(word);
 
 String convertToPast(String word) => PAST.convert(word);
+String past(String word) => PAST.convert(word);
