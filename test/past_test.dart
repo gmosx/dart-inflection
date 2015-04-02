@@ -38,6 +38,9 @@ void main() {
       expect(PAST.convert("undo"), equals("undid"));
       expect(PAST.convert("outsell"), equals("outsold"));
       expect(PAST.convert("rebreed"), equals("rebred"));
+      expect(PAST.convert("arose"), equals("arose"));
+      expect(PAST.convert("backslid"), equals("backslid"));
+      expect(PAST.convert("forbade"), equals("forbade"));
     });
 
   });
