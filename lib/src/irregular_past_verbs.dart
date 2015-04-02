@@ -281,10 +281,12 @@ final Map<String, String> irregularPastVerbs = const {
   "weep": "wept",
   "went": "went",
   "wept": "wept",
+  "were": "were",
   "wind": "wound",
   "woke": "woke",
   "wove": "wove",
   
+  "are": "were",
   "ate": "ate",
   "bet": "bet",
   "bid": "bid",
@@ -318,9 +320,12 @@ final Map<String, String> irregularPastVerbs = const {
   "sit": "sat",
   "sat": "sat",
   "set": "set",
+  "was": "was",
   "win": "won",
   "won": "won",
   
   "do": "did",
-  "go": "went"
+  "go": "went",
+  "is": "was",
+  
 };
