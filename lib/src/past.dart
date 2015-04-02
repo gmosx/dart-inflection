@@ -48,10 +48,6 @@ class PastEncoder extends Converter<String, String> {
         else if (!verbsEndingWithEd.contains(word)) {
           return word;
         }
-        
-//        if (word.startsWith(new RegExp(r'back|dis|for|fore|in|inter|mis|off|over|out|par|pre|re|type|un|under|up'))) {
-//          
-//        }
       }
       for (var r in _inflectionRules) {
         RegExp pattern = r.first;
