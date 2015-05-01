@@ -6,6 +6,7 @@
 /// [Letter case](http://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
 library inflection;
 
+import 'src/past.dart';
 import 'src/plural.dart';
 import 'src/plural_verb.dart';
 import 'src/singular.dart';
@@ -13,6 +14,7 @@ import 'src/singular_verb.dart';
 import 'src/snake_case.dart';
 import 'src/spinal_case.dart';
 
+export 'src/past.dart';
 export 'src/plural.dart';
 export 'src/plural_verb.dart';
 export 'src/singular.dart';
@@ -35,3 +37,6 @@ String singularizeVerb(String word) => SINGULARVERB.convert(word);
 String convertToSnakeCase(String word) => SNAKE_CASE.convert(word);
 
 String convertToSpinalCase(String word) => SPINAL_CASE.convert(word);
+
+String convertToPast(String word) => PAST.convert(word);
+String past(String word) => PAST.convert(word);
