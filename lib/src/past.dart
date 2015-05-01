@@ -37,7 +37,7 @@ class PastEncoder extends Converter<String, String> {
   @override
   String convert(String word) {
     if (!word.isEmpty) {
-      if (word.contains('ed', word.length - 2)) {
+      if (word.contains("ed", word.length - 2)) {
         RegExp reg = new RegExp(r'^(back|dis|for|fore|in|inter|mis|off|over|out|par|pre|re|type|un|under|up)(.+)$');
         if (reg.hasMatch(word)) {
           if (!verbsEndingWithEd.contains(reg.firstMatch(word).group(2)))
