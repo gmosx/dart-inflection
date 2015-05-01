@@ -3,6 +3,7 @@
 ## 0.4.1
 
 - Cleanup, follow latest conventions and developments in the Dartiverse.
+- Added past inflections.
 
 ## 0.3.2
 
