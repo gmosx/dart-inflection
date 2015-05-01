@@ -1,6 +1,6 @@
 library inflection.snake_case.test;
 
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 import 'package:inflection/src/snake_case.dart';
 

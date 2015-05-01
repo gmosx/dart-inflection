@@ -1,6 +1,6 @@
 library inflection.plural_verb.test;
 
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 import 'package:inflection/src/plural_verb.dart';
 

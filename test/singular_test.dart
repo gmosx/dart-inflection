@@ -1,6 +1,6 @@
 library inflection.singular.test;
 
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 import 'package:inflection/src/singular.dart';
 import 'package:inflection/src/uncountable_nouns.dart';

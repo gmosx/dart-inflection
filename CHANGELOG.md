@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+
+- Cleanup, follow latest conventions and developments in the Dartiverse.
+
 ## 0.3.2
 
 - Cleanup.

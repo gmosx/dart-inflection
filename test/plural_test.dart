@@ -1,6 +1,6 @@
 library inflection.plural.test;
 
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 import 'package:inflection/src/plural.dart';
 import 'package:inflection/src/uncountable_nouns.dart';

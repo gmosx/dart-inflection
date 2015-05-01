@@ -1,6 +1,6 @@
 library inflection.spinal_case.test;
 
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 import 'package:inflection/src/spinal_case.dart';
 
