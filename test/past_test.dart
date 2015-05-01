@@ -1,6 +1,6 @@
-library inflection.PAST.test;
+library inflection.past.test;
 
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 import 'package:inflection/src/past.dart';
 import 'package:inflection/src/irregular_past_verbs.dart';
@@ -42,6 +42,5 @@ void main() {
       expect(PAST.convert("backslid"), equals("backslid"));
       expect(PAST.convert("forbade"), equals("forbade"));
     });
-
   });
 }
