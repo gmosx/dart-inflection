@@ -3,19 +3,15 @@ library inflection.irregular_past_verbs;
 /// A collection of verbs with irregular past.
 final Map<String, String> irregularPastVerbs = const {
   "backslidden": "backslid",
-
   "forbidden": "forbade",
-
   "stridden": "strode",
   "stricken": "struck",
-
   "brought": "brought",
   "striven": "strove",
   "swollen": "swelled",
   "thought": "thought",
   "trodden": "trod",
   "forbade": "forbade",
-
   "arisen": "arose",
   "awoken": "awoke",
   "beaten": "beat",
@@ -64,7 +60,6 @@ final Map<String, String> irregularPastVerbs = const {
   "taught": "taught",
   "thrown": "threw",
   "thrust": "thrust",
-
   "arise": "arose",
   "arose": "arose",
   "awake": "awoke",
@@ -168,7 +163,6 @@ final Map<String, String> irregularPastVerbs = const {
   "tread": "trod",
   "woken": "woke",
   "woven": "wove",
-
   "bear": "bore",
   "bore": "bore",
   "born": "bore",
@@ -284,7 +278,6 @@ final Map<String, String> irregularPastVerbs = const {
   "wind": "wound",
   "woke": "woke",
   "wove": "wove",
-
   "are": "were",
   "ate": "ate",
   "bet": "bet",
@@ -323,7 +316,6 @@ final Map<String, String> irregularPastVerbs = const {
   "was": "was",
   "win": "won",
   "won": "won",
-
   "do": "did",
   "go": "went",
   "is": "was",

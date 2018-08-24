@@ -35,7 +35,9 @@ class PluralEncoder extends Converter<String, String> {
       [r'^(ox)$', (m) => '${m[1]}en'],
       [r'^(oxen)$', (m) => m[1]],
       [r'(quiz)$', (m) => '${m[1]}zes']
-    ].reversed.forEach((rule) => addInflectionRule(rule.first as String, rule.last));
+    ]
+        .reversed
+        .forEach((rule) => addInflectionRule(rule.first as String, rule.last));
   }
 
   void addInflectionRule(String singular, dynamic plural) {
@@ -52,10 +54,14 @@ class PluralEncoder extends Converter<String, String> {
       addInflectionRule('(${s0})${srest}\$', (m) => '${m[1]}${prest}');
       addInflectionRule('(${p0})${prest}\$', (m) => '${m[1]}${prest}');
     } else {
-      addInflectionRule('${s0.toUpperCase()}(?i)${srest}\$', (m) => '${p0.toUpperCase()}${prest}');
-      addInflectionRule('${s0.toLowerCase()}(?i)${srest}\$', (m) => '${p0.toUpperCase()}${prest}');
-      addInflectionRule('${p0.toUpperCase()}(?i)${prest}\$', (m) => '${p0.toUpperCase()}${prest}');
-      addInflectionRule('${p0.toLowerCase()}(?i)${prest}\$', (m) => '${p0.toLowerCase()}${prest}');
+      addInflectionRule('${s0.toUpperCase()}(?i)${srest}\$',
+          (m) => '${p0.toUpperCase()}${prest}');
+      addInflectionRule('${s0.toLowerCase()}(?i)${srest}\$',
+          (m) => '${p0.toUpperCase()}${prest}');
+      addInflectionRule('${p0.toUpperCase()}(?i)${prest}\$',
+          (m) => '${p0.toUpperCase()}${prest}');
+      addInflectionRule('${p0.toLowerCase()}(?i)${prest}\$',
+          (m) => '${p0.toLowerCase()}${prest}');
     }
   }
 

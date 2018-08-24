@@ -19,7 +19,9 @@ class SingularVerbEncoder extends Converter<String, String> {
       [r'(z)$', (m) => '${m[1]}es'],
       [r'(ss|zz|x|h|o|us)$', (m) => '${m[1]}es'],
       [r'(ed)$', (m) => '${m[1]}']
-    ].reversed.forEach((rule) => addInflectionRule(rule.first as String, rule.last));
+    ]
+        .reversed
+        .forEach((rule) => addInflectionRule(rule.first as String, rule.last));
   }
 
   void addInflectionRule(String singular, dynamic plural) {

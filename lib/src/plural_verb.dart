@@ -22,7 +22,9 @@ class PluralVerbEncoder extends Converter<String, String> {
       [r'([cs])hes$', (m) => '${m[1]}h'],
       [r'xes$', (m) => 'x'],
       [r'sses$', (m) => 'ss']
-    ].reversed.forEach((rule) => addInflectionRule(rule.first as String, rule.last));
+    ]
+        .reversed
+        .forEach((rule) => addInflectionRule(rule.first as String, rule.last));
   }
 
   void addInflectionRule(String singular, dynamic plural) {

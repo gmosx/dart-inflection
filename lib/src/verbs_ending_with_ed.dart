@@ -13,7 +13,7 @@ final List<String> verbsEndingWithEd = const [
   "proceed",
   "seed",
   "shred"
-  "speed",
+      "speed",
   "succeed",
   "ted",
   "wed",

@@ -19,7 +19,10 @@ class SingularEncoder extends Converter<String, String> {
       [r'(ss)$', (m) => m[1]],
       [r'(n)ews$', (m) => '${m[1]}ews'], // TODO: uncountable?
       [r'([ti])a$', (m) => '${m[1]}um'],
-      [r'((a)naly|(b)a|(d)iagno|(p)arenthe|(p)rogno|(s)ynop|(t)he)(sis|ses)$', (m) => '${m[1]}sis'],
+      [
+        r'((a)naly|(b)a|(d)iagno|(p)arenthe|(p)rogno|(s)ynop|(t)he)(sis|ses)$',
+        (m) => '${m[1]}sis'
+      ],
       [r'(^analy)(sis|ses)$', (m) => '${m[1]}sis'], // TODO: not needed?
       [r'([^f])ves$', (m) => '${m[1]}fe'],
       [r'(hive|tive)s$', (m) => m[1]],
@@ -40,7 +43,9 @@ class SingularEncoder extends Converter<String, String> {
       [r'(matr)ices$', (m) => '${m[1]}ix'],
       [r'(quiz)zes$', (m) => m[1]],
       [r'(database)s$', (m) => m[1]]
-    ].reversed.forEach((rule) => addInflectionRule(rule.first as String, rule.last));
+    ]
+        .reversed
+        .forEach((rule) => addInflectionRule(rule.first as String, rule.last));
   }
 
   void addInflectionRule(String plural, dynamic singular) {
@@ -57,10 +62,14 @@ class SingularEncoder extends Converter<String, String> {
       addInflectionRule('(${s0})${srest}\$', (m) => '${m[1]}${srest}');
       addInflectionRule('(${p0})${prest}\$', (m) => '${m[1]}${srest}');
     } else {
-      addInflectionRule('${s0.toUpperCase()}(?i)${srest}\$', (m) => '${s0.toUpperCase()}${srest}');
-      addInflectionRule('${s0.toLowerCase()}(?i)${srest}\$', (m) => '${s0.toUpperCase()}${srest}');
-      addInflectionRule('${p0.toUpperCase()}(?i)${prest}\$', (m) => '${s0.toUpperCase()}${srest}');
-      addInflectionRule('${p0.toLowerCase()}(?i)${prest}\$', (m) => '${s0.toLowerCase()}${srest}');
+      addInflectionRule('${s0.toUpperCase()}(?i)${srest}\$',
+          (m) => '${s0.toUpperCase()}${srest}');
+      addInflectionRule('${s0.toLowerCase()}(?i)${srest}\$',
+          (m) => '${s0.toUpperCase()}${srest}');
+      addInflectionRule('${p0.toUpperCase()}(?i)${prest}\$',
+          (m) => '${s0.toUpperCase()}${srest}');
+      addInflectionRule('${p0.toLowerCase()}(?i)${prest}\$',
+          (m) => '${s0.toLowerCase()}${srest}');
     }
   }
 
