@@ -166,6 +166,7 @@ final Map<String, String> irregularPastVerbs = const {
   "threw": "threw",
   "throw": "threw",
   "tread": "trod",
+  "wake": "woke",
   "woken": "woke",
   "woven": "wove",
 
