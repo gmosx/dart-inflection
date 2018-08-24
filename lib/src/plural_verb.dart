@@ -10,18 +10,18 @@ class PluralVerbEncoder extends Converter<String, String> {
 
   PluralVerbEncoder() {
     irregularPluralVerbs.forEach((singular, plural) {
-      addInflectionRule(singular, (m) => plural);
+      addInflectionRule(singular, (Match m) => plural);
     });
 
     [
-      [r'e?s$', (m) => ''],
-      [r'ies$', (m) => 'y'],
-      [r'([^h|z|o|i])es$', (m) => '${m[1]}e'],
-      [r'ses$', (m) => 's'],
-      [r'zzes$', (m) => 'zz'],
-      [r'([cs])hes$', (m) => '${m[1]}h'],
-      [r'xes$', (m) => 'x'],
-      [r'sses$', (m) => 'ss']
+      [r'e?s$', (Match m) => ''],
+      [r'ies$', (Match m) => 'y'],
+      [r'([^h|z|o|i])es$', (Match m) => '${m[1]}e'],
+      [r'ses$', (Match m) => 's'],
+      [r'zzes$', (Match m) => 'zz'],
+      [r'([cs])hes$', (Match m) => '${m[1]}h'],
+      [r'xes$', (Match m) => 'x'],
+      [r'sses$', (Match m) => 'ss']
     ]
         .reversed
         .forEach((rule) => addInflectionRule(rule.first as String, rule.last));

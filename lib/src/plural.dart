@@ -15,26 +15,26 @@ class PluralEncoder extends Converter<String, String> {
     });
 
     [
-      [r'$', (m) => 's'],
-      [r's$', (m) => 's'],
-      [r'^(ax|test)is$', (m) => '${m[1]}es'],
-      [r'(octop|vir)us$', (m) => '${m[1]}i'],
-      [r'(octop|vir)i$', (m) => m[0]],
-      [r'(alias|status)$', (m) => '${m[1]}es'],
-      [r'(bu)s$', (m) => '${m[1]}ses'],
-      [r'(buffal|tomat)o$', (m) => '${m[1]}oes'],
-      [r'([ti])um$', (m) => '${m[1]}a'],
-      [r'([ti])a$', (m) => m[0]],
-      [r'sis$', (m) => 'ses'],
-      [r'(?:([^f])fe|([lr])f)$', (m) => '${m[1]}${m[2]}ves'],
-      [r'([^aeiouy]|qu)y$', (m) => '${m[1]}ies'],
-      [r'(x|ch|ss|sh)$', (m) => '${m[1]}es'],
-      [r'(matr|vert|ind)(?:ix|ex)$', (m) => '${m[1]}ices'],
-      [r'^(m|l)ouse$', (m) => '${m[1]}ice'],
-      [r'^(m|l)ice$', (m) => m[0]],
-      [r'^(ox)$', (m) => '${m[1]}en'],
-      [r'^(oxen)$', (m) => m[1]],
-      [r'(quiz)$', (m) => '${m[1]}zes']
+      [r'$', (Match m) => 's'],
+      [r's$', (Match m) => 's'],
+      [r'^(ax|test)is$', (Match m) => '${m[1]}es'],
+      [r'(octop|vir)us$', (Match m) => '${m[1]}i'],
+      [r'(octop|vir)i$', (Match m) => m[0]],
+      [r'(alias|status)$', (Match m) => '${m[1]}es'],
+      [r'(bu)s$', (Match m) => '${m[1]}ses'],
+      [r'(buffal|tomat)o$', (Match m) => '${m[1]}oes'],
+      [r'([ti])um$', (Match m) => '${m[1]}a'],
+      [r'([ti])a$', (Match m) => m[0]],
+      [r'sis$', (Match m) => 'ses'],
+      [r'(?:([^f])fe|([lr])f)$', (Match m) => '${m[1]}${m[2]}ves'],
+      [r'([^aeiouy]|qu)y$', (Match m) => '${m[1]}ies'],
+      [r'(x|ch|ss|sh)$', (Match m) => '${m[1]}es'],
+      [r'(matr|vert|ind)(?:ix|ex)$', (Match m) => '${m[1]}ices'],
+      [r'^(m|l)ouse$', (Match m) => '${m[1]}ice'],
+      [r'^(m|l)ice$', (Match m) => m[0]],
+      [r'^(ox)$', (Match m) => '${m[1]}en'],
+      [r'^(oxen)$', (Match m) => m[1]],
+      [r'(quiz)$', (Match m) => '${m[1]}zes']
     ]
         .reversed
         .forEach((rule) => addInflectionRule(rule.first as String, rule.last));
@@ -51,17 +51,17 @@ class PluralEncoder extends Converter<String, String> {
     final prest = plural.substring(1);
 
     if (s0.toUpperCase() == p0.toUpperCase()) {
-      addInflectionRule('(${s0})${srest}\$', (m) => '${m[1]}${prest}');
-      addInflectionRule('(${p0})${prest}\$', (m) => '${m[1]}${prest}');
+      addInflectionRule('(${s0})${srest}\$', (Match m) => '${m[1]}${prest}');
+      addInflectionRule('(${p0})${prest}\$', (Match m) => '${m[1]}${prest}');
     } else {
       addInflectionRule('${s0.toUpperCase()}(?i)${srest}\$',
-          (m) => '${p0.toUpperCase()}${prest}');
+          (Match m) => '${p0.toUpperCase()}${prest}');
       addInflectionRule('${s0.toLowerCase()}(?i)${srest}\$',
-          (m) => '${p0.toUpperCase()}${prest}');
+          (Match m) => '${p0.toUpperCase()}${prest}');
       addInflectionRule('${p0.toUpperCase()}(?i)${prest}\$',
-          (m) => '${p0.toUpperCase()}${prest}');
+          (Match m) => '${p0.toUpperCase()}${prest}');
       addInflectionRule('${p0.toLowerCase()}(?i)${prest}\$',
-          (m) => '${p0.toLowerCase()}${prest}');
+          (Match m) => '${p0.toLowerCase()}${prest}');
     }
   }
 

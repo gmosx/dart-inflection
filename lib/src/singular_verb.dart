@@ -10,15 +10,15 @@ class SingularVerbEncoder extends Converter<String, String> {
 
   SingularVerbEncoder() {
     irregularPluralVerbs.forEach((singular, plural) {
-      addInflectionRule(plural, (m) => singular);
+      addInflectionRule(plural, (Match m) => singular);
     });
 
     [
-      [r'$', (m) => 's'],
-      [r'([^aeiou])y$', (m) => '${m[1]}ies'],
-      [r'(z)$', (m) => '${m[1]}es'],
-      [r'(ss|zz|x|h|o|us)$', (m) => '${m[1]}es'],
-      [r'(ed)$', (m) => '${m[1]}']
+      [r'$', (Match m) => 's'],
+      [r'([^aeiou])y$', (Match m) => '${m[1]}ies'],
+      [r'(z)$', (Match m) => '${m[1]}es'],
+      [r'(ss|zz|x|h|o|us)$', (Match m) => '${m[1]}es'],
+      [r'(ed)$', (Match m) => '${m[1]}']
     ]
         .reversed
         .forEach((rule) => addInflectionRule(rule.first as String, rule.last));

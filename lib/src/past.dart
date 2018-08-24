@@ -14,10 +14,10 @@ class PastEncoder extends Converter<String, String> {
       addIrregularInflectionRule(presentOrParticiple, past);
     });
     [
-      [r'.+', (m) => '${m[0]}ed'],
-      [r'([^aeiou])y$', (m) => '${m[1]}ied'],
-      [r'([aeiou]e)$', (m) => '${m[1]}d'],
-      [r'[aeiou][^aeiou]e$', (m) => '${m[0]}d']
+      [r'.+', (Match m) => '${m[0]}ed'],
+      [r'([^aeiou])y$', (Match m) => '${m[1]}ied'],
+      [r'([aeiou]e)$', (Match m) => '${m[1]}d'],
+      [r'[aeiou][^aeiou]e$', (Match m) => '${m[0]}d']
     ]
         .reversed
         .forEach((rule) => addInflectionRule(rule.first as String, rule.last));
@@ -35,7 +35,7 @@ class PastEncoder extends Converter<String, String> {
               presentOrParticiple +
               r'$',
           caseSensitive: false),
-      (m) => (m[1] == null) ? past : m[1] + past
+      (Match m) => (m[1] == null) ? past : m[1] + past
     ]);
   }
 
