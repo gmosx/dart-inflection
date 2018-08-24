@@ -3,6 +3,7 @@ library inflection.plural_verb;
 import 'dart:convert';
 
 import 'irregular_plural_verbs.dart';
+import 'util.dart';
 
 class PluralVerbEncoder extends Converter<String, String> {
   final List<List> _inflectionRules = [];
@@ -21,7 +22,7 @@ class PluralVerbEncoder extends Converter<String, String> {
       [r'([cs])hes$', (m) => '${m[1]}h'],
       [r'xes$', (m) => 'x'],
       [r'sses$', (m) => 'ss']
-    ].reversed.forEach((rule) => addInflectionRule(rule.first, rule.last));
+    ].reversed.forEach((rule) => addInflectionRule(rule.first as String, rule.last));
   }
 
   void addInflectionRule(String singular, dynamic plural) {
@@ -34,7 +35,7 @@ class PluralVerbEncoder extends Converter<String, String> {
       for (var r in _inflectionRules) {
         RegExp pattern = r.first;
         if (pattern.hasMatch(word)) {
-          return word.replaceAllMapped(pattern, r.last);
+          return word.replaceAllMapped(pattern, r.last as MatchToString);
         }
       }
     }

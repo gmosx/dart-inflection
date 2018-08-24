@@ -3,6 +3,7 @@ library inflection.singular_verb;
 import 'dart:convert';
 
 import 'irregular_plural_verbs.dart';
+import 'util.dart';
 
 class SingularVerbEncoder extends Converter<String, String> {
   final List<List> _inflectionRules = [];
@@ -18,7 +19,7 @@ class SingularVerbEncoder extends Converter<String, String> {
       [r'(z)$', (m) => '${m[1]}es'],
       [r'(ss|zz|x|h|o|us)$', (m) => '${m[1]}es'],
       [r'(ed)$', (m) => '${m[1]}']
-    ].reversed.forEach((rule) => addInflectionRule(rule.first, rule.last));
+    ].reversed.forEach((rule) => addInflectionRule(rule.first as String, rule.last));
   }
 
   void addInflectionRule(String singular, dynamic plural) {
@@ -31,7 +32,7 @@ class SingularVerbEncoder extends Converter<String, String> {
       for (var r in _inflectionRules) {
         RegExp pattern = r.first;
         if (pattern.hasMatch(word)) {
-          return word.replaceAllMapped(pattern, r.last);
+          return word.replaceAllMapped(pattern, r.last as MatchToString);
         }
       }
     }

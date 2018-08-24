@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'uncountable_nouns.dart';
 import 'irregular_plural_nouns.dart';
+import 'util.dart';
 
 class PluralEncoder extends Converter<String, String> {
   final List<List> _inflectionRules = [];
@@ -34,7 +35,7 @@ class PluralEncoder extends Converter<String, String> {
       [r'^(ox)$', (m) => '${m[1]}en'],
       [r'^(oxen)$', (m) => m[1]],
       [r'(quiz)$', (m) => '${m[1]}zes']
-    ].reversed.forEach((rule) => addInflectionRule(rule.first, rule.last));
+    ].reversed.forEach((rule) => addInflectionRule(rule.first as String, rule.last));
   }
 
   void addInflectionRule(String singular, dynamic plural) {
@@ -67,7 +68,7 @@ class PluralEncoder extends Converter<String, String> {
         for (var r in _inflectionRules) {
           RegExp pattern = r.first;
           if (pattern.hasMatch(word)) {
-            return word.replaceAllMapped(pattern, r.last);
+            return word.replaceAllMapped(pattern, r.last as MatchToString);
           }
         }
       }

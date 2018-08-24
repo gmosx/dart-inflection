@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'irregular_past_verbs.dart';
 import 'verbs_ending_with_ed.dart';
+import 'util.dart';
 
 class PastEncoder extends Converter<String, String> {
   final List<List> _inflectionRules = [];
@@ -12,13 +13,12 @@ class PastEncoder extends Converter<String, String> {
     irregularPastVerbs.forEach((String presentOrParticiple, String past) {
       addIrregularInflectionRule(presentOrParticiple, past);
     });
-
-    [
+[
       [r'.+', (m) => '${m[0]}ed'],
       [r'([^aeiou])y$', (m) => '${m[1]}ied'],
       [r'([aeiou]e)$', (m) => '${m[1]}d'],
       [r'[aeiou][^aeiou]e$', (m) => '${m[0]}d']
-    ].reversed.forEach((rule) => addInflectionRule(rule.first, rule.last));
+    ].reversed.forEach((rule) => addInflectionRule(rule.first as String, rule.last));
   }
 
   void addInflectionRule(String presentOrParticiple, dynamic past) {
@@ -50,7 +50,7 @@ class PastEncoder extends Converter<String, String> {
       for (var r in _inflectionRules) {
         RegExp pattern = r.first;
         if (pattern.hasMatch(word)) {
-          return word.replaceAllMapped(pattern, r.last);
+          return word.replaceAllMapped(pattern, r.last as MatchToString);
         }
       }
     }
