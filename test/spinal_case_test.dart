@@ -12,7 +12,8 @@ void main() {
       expect(SPINAL_CASE.convert("propertyName"), equals("property-name"));
       expect(SPINAL_CASE.convert("property"), equals("property"));
       expect(SPINAL_CASE.convert("snake_case"), equals("snake-case"));
-      expect(SPINAL_CASE.convert("This is a nice article"), equals("this-is-a-nice-article"));
+      expect(SPINAL_CASE.convert("This is a nice article"),
+          equals("this-is-a-nice-article"));
     });
   });
 }

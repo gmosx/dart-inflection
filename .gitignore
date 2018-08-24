@@ -8,3 +8,5 @@ packages
 .project
 .settings
 .idea
+.packages
+.dart_tool

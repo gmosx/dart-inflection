@@ -3,25 +3,28 @@ library inflection.plural_verb;
 import 'dart:convert';
 
 import 'irregular_plural_verbs.dart';
+import 'util.dart';
 
 class PluralVerbEncoder extends Converter<String, String> {
   final List<List> _inflectionRules = [];
 
   PluralVerbEncoder() {
     irregularPluralVerbs.forEach((singular, plural) {
-      addInflectionRule(singular, (m) => plural);
+      addInflectionRule(singular, (Match m) => plural);
     });
 
     [
-      [r'e?s$', (m) => ''],
-      [r'ies$', (m) => 'y'],
-      [r'([^h|z|o|i])es$', (m) => '${m[1]}e'],
-      [r'ses$', (m) => 's'],
-      [r'zzes$', (m) => 'zz'],
-      [r'([cs])hes$', (m) => '${m[1]}h'],
-      [r'xes$', (m) => 'x'],
-      [r'sses$', (m) => 'ss']
-    ].reversed.forEach((rule) => addInflectionRule(rule.first, rule.last));
+      [r'e?s$', (Match m) => ''],
+      [r'ies$', (Match m) => 'y'],
+      [r'([^h|z|o|i])es$', (Match m) => '${m[1]}e'],
+      [r'ses$', (Match m) => 's'],
+      [r'zzes$', (Match m) => 'zz'],
+      [r'([cs])hes$', (Match m) => '${m[1]}h'],
+      [r'xes$', (Match m) => 'x'],
+      [r'sses$', (Match m) => 'ss']
+    ]
+        .reversed
+        .forEach((rule) => addInflectionRule(rule.first as String, rule.last));
   }
 
   void addInflectionRule(String singular, dynamic plural) {
@@ -34,7 +37,7 @@ class PluralVerbEncoder extends Converter<String, String> {
       for (var r in _inflectionRules) {
         RegExp pattern = r.first;
         if (pattern.hasMatch(word)) {
-          return word.replaceAllMapped(pattern, r.last);
+          return word.replaceAllMapped(pattern, r.last as MatchToString);
         }
       }
     }
